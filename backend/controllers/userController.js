@@ -45,9 +45,7 @@ const NewPassword=asyncHandler(async (req,res)=>{
   const {password,token}=req.body;
   User.findOneAndUpdate({resetToken:token}).then(user=>{
     if(!user) return res.status(422).json({error:"Try again session expired"});
-    bcrypt.genSalt(10).then((salt)=>{
-      bcrypt.hash(password,salt).then(hashedP=>{
-        user.password=hashedP;
+        user.password=password;
         user.resetToken=undefined;
         user.expireToken=undefined;
         user.save().then((result)=>{
@@ -55,8 +53,6 @@ const NewPassword=asyncHandler(async (req,res)=>{
         })
       })
     })
-  })
-})
 
 // @desc    Auth user & get token
 // @route   POST /api/users/login
@@ -65,7 +61,6 @@ const authUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body
 
   const user = await User.findOne({ email })
-
   if (user && (await user.matchPassword(password))) {
     res.json({
       _id: user._id,
@@ -127,10 +122,10 @@ const googleLogin=asyncHandler(async (req,res)=>{
 // @route   POST /api/users
 // @access  Public
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password } = req.body
-
+  let { name, email, password } = req.body
+  
   const userExists = await User.findOne({ email })
-
+  console.log(password);
   if (userExists) {
     res.status(400)
     throw new Error('User already exists')
@@ -150,15 +145,21 @@ const registerUser = asyncHandler(async (req, res) => {
       isAdmin: user.isAdmin,
       token: generateToken(user._id),
     })
+    transporter.sendMail({
+      to:user.email,
+      from:"chamolirohit22@gmail.com",
+      subject:"Welcome to BuyMyBooks",
+      html:"<h1>Welcome to the BuyMyBooks</h1>"
+  }) 
   } else {
     res.status(400)
     throw new Error('Invalid user data')
   }
 })
 const registerAdmin = asyncHandler(async (req, res) => {
-  const { name, email, password,isAdmin} = req.body
+  let { name, email, password,isAdmin} = req.body
 
-  const userExists = await User.findOne({ email })
+  const userExists = await User.findOne({ email });
 
   if (userExists) {
     res.status(400)
