@@ -1,0 +1,12 @@
+TODO for buymybooks
+1)navbar-create ad,My ads,Second hand books
+2)backend-ad model
+3)routes-a)create ad
+        b)edit ad
+        c)delete ad
+4)frontend-actions and reducer work for ads
+5)Under admin, Remove users deletion functionality
+6)For registering as shopkeeper a) different Register page
+7)frontend actions and reducer for shopkeepers
+8)backend route for shopkeepers
+9)remove get users from admin 
