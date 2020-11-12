@@ -4,7 +4,8 @@ import User from '../models/userModel.js'
 import nodemailer from 'nodemailer'
 import sendgrid from 'nodemailer-sendgrid-transport'
 import crypto from 'crypto'
-import { OAuth2Client } from 'google-auth-library'
+import pkg from 'google-auth-library';
+const {OAuth2Client}=pkg;
 
 const client=new OAuth2Client("403380080270-6rpdj7ll4gkvlrvi4s03imtk3e487nuo.apps.googleusercontent.com");
 
