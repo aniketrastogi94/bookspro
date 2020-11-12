@@ -66,7 +66,7 @@ const LoginScreen = ({ location, history }) => {
           <Link to='/reset'> Reset Password</Link>
         </Form.Group>
         
-        <Button type='submit' variant='primary'>
+        <Button type='submit' variant='primary' className='btn btn-primary btn-lg'>
           Sign In
         </Button>
         <GoogleLogin
@@ -75,7 +75,7 @@ const LoginScreen = ({ location, history }) => {
           onSuccess={responseSuccess}
           onFailure={responseFailure}
           cookiePolicy={'single_host_origin'}
-          className='p-1 mx-3 bg-primary'
+          className='p-0.5 mx-3 bg-primary'
         />
       </Form>
 

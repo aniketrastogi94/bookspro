@@ -18,7 +18,7 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar bg='info' variant='dark' expand='lg' collapseOnSelect>
+      <Navbar bg='warning' variant='light' expand='lg' collapseOnSelect>
         <Container>
           <LinkContainer to='/'>
             <Navbar.Brand><i class="fab fa-accusoft"></i>{' '}BuyMyBooks</Navbar.Brand>

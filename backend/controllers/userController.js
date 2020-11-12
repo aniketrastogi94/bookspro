@@ -5,13 +5,12 @@ import nodemailer from 'nodemailer'
 import sendgrid from 'nodemailer-sendgrid-transport'
 import crypto from 'crypto'
 import { OAuth2Client } from 'google-auth-library'
-import bcrypt from 'bcryptjs';
 
 const client=new OAuth2Client("403380080270-6rpdj7ll4gkvlrvi4s03imtk3e487nuo.apps.googleusercontent.com");
 
 const transporter=nodemailer.createTransport(sendgrid({
   auth:{
-    api_key:"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"
+    api_key:process.env.SENDGRID
   }
 }));
 
@@ -32,7 +31,7 @@ const ResetPassword=(req,res)=>{
             subject:"Reset Password",
                html:`
                  <p>You Requested for reset password</p>
-                 <h5>Click on this link <a href="http://localhost:3000/reset/${token}" >Link</a>to reset your password</h5>
+                 <h5>Click on this link <a href="https://buymybooks.herokuapp.com/reset/${token}" >Link</a>to reset your password</h5>
                `
           });
           return res.json({msg:"check your email"});

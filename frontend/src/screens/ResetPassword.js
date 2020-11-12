@@ -33,7 +33,7 @@ const ResetPassword = ({ location, history }) => {
         </Form.Group>
 
         
-        <Button type='submit' variant='primary'>
+        <Button type='submit' variant='primary' className='btn btn-primary btn-lg'>
           Submit
         </Button>
       </Form>

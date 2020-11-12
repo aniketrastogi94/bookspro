@@ -15,7 +15,7 @@ const Ad = ({ ad }) => {
             <strong>{ad.name}</strong>
           </Card.Title>
         </Link>
-        <Card.Text as='h3'>${ad.price}</Card.Text>
+        <Card.Text as='h3'>Rs{ad.price}</Card.Text>
       </Card.Body>
     </Card>
   )
