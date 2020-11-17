@@ -111,7 +111,7 @@ const AdListScreen = ({ history, match }) => {
                 (<tr key={ad._id}>
                   <td>{ad._id}</td>
                   <td>{ad.name}</td>
-                  <td>${ad.price}</td>
+                  <td>Rs{ad.price}</td>
                   <td>{ad.category}</td>
                   <td>{ad.brand}</td>
                   <td>

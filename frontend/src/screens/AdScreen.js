@@ -43,7 +43,7 @@ const AdScreen = ({ history, match }) => {
                 <ListGroup.Item>
                   <h3>{ad.name}</h3>
                 </ListGroup.Item>
-                <ListGroup.Item>Price: ${ad.price}</ListGroup.Item>
+                <ListGroup.Item>Price: Rs{ad.price}</ListGroup.Item>
                 <ListGroup.Item>
                   Description: {ad.description}
                 </ListGroup.Item>
@@ -56,7 +56,7 @@ const AdScreen = ({ history, match }) => {
                     <Row>
                       <Col>Price:</Col>
                       <Col>
-                        <strong>${ad.price}</strong>
+                        <strong>Rs{ad.price}</strong>
                       </Col>
                     </Row>
                   </ListGroup.Item>
